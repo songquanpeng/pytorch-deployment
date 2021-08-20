@@ -1,0 +1,16 @@
+{% if message %}
+    {% if is_warning %}
+        <article id='message' class="message is-warning">
+    {% else %}
+        <article id='message' class="message is-info">
+    {% endif %}
+<div class="message-body">
+    {{ message }}
+</div>
+<script>
+    setTimeout(function () {
+        document.getElementById('message').style.display = 'none';
+    }, 5000)
+</script>
+</article>
+{% endif %}

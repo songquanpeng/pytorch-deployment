@@ -1,0 +1,14 @@
+{
+  "port": 3000,
+  "website": {
+    "name": "Demo",
+    "title": "Title",
+    "description": "Change this description by modify config.json.",
+    "source_license": "MIT",
+    "license_link": "http://opensource.org/licenses/mit-license.php",
+    "source_link": "https://github.com/songquanpeng/pytorch-deployment",
+    "help_link": "https://github.com/songquanpeng/pytorch-deployment",
+    "owner_name": "JustSong",
+    "owner_link": "https://github.com/songquanpeng"
+  }
+}
