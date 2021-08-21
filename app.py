@@ -41,21 +41,15 @@ def model_inference():
         "data": None
     })
 
-    model_name = request.form['model']
-    if model_name == 'starganv2_afhq':
-        res = StarGANv2.controller(request)
-    else:
-        res.message = f"no such model: {model_name}"
-
-    # try:
-    #     model_name = request.form['model']
-    #     if model_name == 'starganv2_afhq':
-    #         res = StarGANv2.controller(request)
-    #     else:
-    #         res.message = f"no such model: {model_name}"
-    # except werkzeug.exceptions.BadRequestKeyError as e:
-    #     res.message = str(e)
-    #     print(e)
+    try:
+        model_name = request.form['model']
+        if model_name == 'starganv2_afhq':
+            res = StarGANv2.controller(request)
+        else:
+            res.message = f"no such model: {model_name}"
+    except Exception as e:
+        res.message = str(e)
+        print(e)
     return res
 
 
@@ -72,7 +66,7 @@ def predict(model_name):
     }
 
 
-StarGANv2.init()
+StarGANv2.init(cfg.device)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=cfg.port)

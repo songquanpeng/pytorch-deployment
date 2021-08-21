@@ -250,3 +250,7 @@ span.line {
   height: 256px;
   width: 256px;
 }
+
+.footer {
+    padding: 3rem 1.5rem;
+}

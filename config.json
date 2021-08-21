@@ -1,5 +1,6 @@
 {
   "port": 3000,
+  "device": "cpu",
   "website": {
     "name": "Demo",
     "title": "Title",

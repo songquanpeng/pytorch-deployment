@@ -45,20 +45,34 @@ async function StarGANv2Generate() {
     let mode = "latent";
     if (isRef) mode = "reference"
     let src_img = document.getElementById("srcImage").files[0];
-    let ref_img = undefined;
-    if (document.getElementById("refImage").files.length > 0) {
-        ref_img = document.getElementById("refImage").files[0];
+    if (isRef) {
+        let ref_img = document.getElementById("refImage").files[0];
+        form.append("ref_img", ref_img, "ref_img");
     }
     form.append("model", "starganv2_afhq");
     form.append("y", y);
     form.append("seed", seed);
     form.append("mode", mode);
     form.append("src_img", src_img, "src_img");
-    form.append("ref_img", ref_img, "ref_img");
     let res = await fetch("/api/model", {
         method: 'post',
         body: form
     });
     let data = await res.json();
-    document.getElementById('showResImage').src = "/" + data.data[0];
+    if (data.success) {
+        document.getElementById('showResImage').src = "/" + data.data[0];
+    } else {
+        showErrorMessage(data.message);
+    }
+}
+
+
+function showErrorMessage(message, duration = 5) {
+    console.error(message);
+    let e = document.getElementById('errorMessage');
+    e.children[0].textContent = `Error: ${message}`;
+    e.style.display = 'block';
+    setTimeout(() => {
+        e.style.display = 'none';
+    }, duration * 1000);
 }
