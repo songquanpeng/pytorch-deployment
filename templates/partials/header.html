@@ -7,7 +7,11 @@
     {% else %}
         <title>{{ cfg.website.title }}</title>
     {% endif %}
-    <meta name="description" content="{{ cfg.website.description }}">
+    {% if description %}
+        <meta name="description" content="{{ description }}">
+    {% else %}
+        <meta name="description" content="{{ cfg.website.description }}">
+    {% endif %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='main.js') }}"></script>

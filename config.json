@@ -10,5 +10,11 @@
     "help_link": "https://github.com/songquanpeng/pytorch-deployment",
     "owner_name": "JustSong",
     "owner_link": "https://github.com/songquanpeng"
+  },
+  "models": {
+    "starganv2_afhq": {
+      "name": "Pretrained StarGANv2 model on AFHQ",
+      "description": "This model can be used to translate animal faces."
+    }
   }
 }

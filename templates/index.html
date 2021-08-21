@@ -2,14 +2,24 @@
 
 <div class="normal-container">
     {% include './partials/message.html' %}
-    <article class="message is-light">
-        <div class="message-header">
-            <p>Description</p>
-        </div>
-        <div class="message-body">
-            {{ cfg.website.description }}
-        </div>
-    </article>
+    <div class="page-card-list">
+        {% for mode_id, model in cfg.models.items() %}
+            <div class="box">
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <div class="page-card-title"><a href="/model/{{ mode_id }}">{{ model['name'] }}</a>
+                            </div>
+                            <div class="page-card-text">
+                                {{ model['description'] }}
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+
 </div>
 
 {% include './partials/footer.html' %}

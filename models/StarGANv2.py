@@ -11,7 +11,7 @@ transform_list = []
 args = Munch()
 
 
-def init(device):
+def init(device='cpu'):
     # Basic configuration
     global args
     args = Munch({
@@ -61,6 +61,7 @@ def init(device):
 def preprocess(img):
     if img is None:
         return None
+    assert len(transform_list) != 0
     # TODO: let the frontend do image preprocessing
     for transform in transform_list:
         img = transform(img)
@@ -77,8 +78,10 @@ def inference(x_src, x_ref, y=0, seed=0, mode='latent'):
         torch.manual_seed(seed)
         z = torch.randn(batch_size, args.latent_dim).to(args.device)
         s = nets.mapping_network(z, y)
-    else:
+    elif mode == "reference":
         s = nets.style_encoder(x_ref, y)
+    else:
+        assert False, f"No such mode: {mode}"
     x_fake = nets.generator(x_src, s)
     return x_fake
 
@@ -114,14 +117,32 @@ def stargan_v2(x_src, x_ref, y=None, seed=0, mode='latent'):
     return res.__dict__
 
 
+def controller(request):
+    mode = request.form['mode']
+    y = request.form['y']
+    y = int(y)
+    src_img = Image.open(request.files['src_img'])
+    if mode == 'reference':
+        ref_img = Image.open(request.files['ref_img'])
+        res = stargan_v2(src_img, ref_img, y=y, mode=mode)
+    else:
+        seed = request.form['seed']
+        res = stargan_v2(src_img, x_ref=None, y=y, seed=seed, mode=mode)
+    return res
+
+
 if __name__ == '__main__':
-    model = init('cuda')
-    src_img_path = "./temp/cat.jpg"
-    ref_img_path = "./temp/dog.jpg"
-    y = 0
-    src_img = Image.open(src_img_path).convert('RGB')
-    ref_img = Image.open(ref_img_path).convert('RGB')
-    res = stargan_v2(src_img, ref_img, y, mode='reference')
-    print(res)
-    res = stargan_v2(src_img, ref_img, y, mode='latent')
-    print(res)
+    def main():
+        init('cuda')
+        src_img_path = "./temp/cat.jpg"
+        ref_img_path = "./temp/dog.jpg"
+        y = 0
+        src_img = Image.open(src_img_path).convert('RGB')
+        ref_img = Image.open(ref_img_path).convert('RGB')
+        res = stargan_v2(src_img, ref_img, y, mode='reference')
+        print(res)
+        res = stargan_v2(src_img, ref_img, y, mode='latent')
+        print(res)
+
+
+    main()

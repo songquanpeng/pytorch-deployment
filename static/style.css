@@ -1,6 +1,7 @@
 body {
     line-height: 1.6;
     margin: 0;
+    font-family: Verdana, Candara, Arial, Helvetica, Microsoft YaHei, sans-serif;
 }
 
 nav {
@@ -9,6 +10,7 @@ nav {
 
 a {
     text-decoration: none;
+    color: #368CCB;
 }
 
 .wrapper {
@@ -242,4 +244,9 @@ span.line {
 .toc {
     position: sticky;
     top: 24px;
+}
+
+.image.is-256x256 {
+  height: 256px;
+  width: 256px;
 }
