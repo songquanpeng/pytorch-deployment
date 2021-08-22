@@ -2,7 +2,7 @@
 > A template for rapid deployment of PyTorch models.
 
 <details>
-<summary><strong><i>中文 README</i></strong></summary>
+<summary><strong>点击以展开中文 README</strong></summary>
 <div>
 
 ## 功能
@@ -18,10 +18,10 @@
 ## 部署步骤
 1. 安装依赖：`pip install -r requirements.txt`
 2. 启动服务，你有以下选择：
-    1. 项目目录内运行 `flask run -p 3000`，注意该方式性能较差。
+    1. `flask run -p 3000`，注意该方式性能较差。
     2. 使用 Gunicorn：
         1. 安装 Gunicorn：`pip install gunicorn`
-        2. 启动应用：`gunicorn -b 127.0.0.1:3000 pytorch-deployment:app`
+        2. 启动应用：`gunicorn -b 127.0.0.1:3009 app:app`
 
 请注意，模型的权重是从 Github 上下载的，如果你的服务器无法正常访问 Github，请手动下载权重并放到 data 文件夹下。
 
