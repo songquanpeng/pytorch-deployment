@@ -13,7 +13,7 @@
 + [ ] 支持图像生成模型.
 
 ## 演示
-![StarGANv2_AFHQ](https://cdn.jsdelivr.net/gh/justsong-lab/images/misc/starganv2_afhq.gif)
+![starganv2_afhq](https://user-images.githubusercontent.com/39998050/155641683-fbef7d4a-7a44-4f60-bf96-7df79a02c0ee.gif)
 
 ## 部署步骤
 1. 安装依赖：`pip install -r requirements.txt`
@@ -39,5 +39,4 @@
 + [ ] Support image generation models.
 
 ## Demo
-![StarGANv2_AFHQ](https://cdn.jsdelivr.net/gh/justsong-lab/images/misc/starganv2_afhq.gif)
-
+![starganv2_afhq](https://user-images.githubusercontent.com/39998050/155641683-fbef7d4a-7a44-4f60-bf96-7df79a02c0ee.gif)
