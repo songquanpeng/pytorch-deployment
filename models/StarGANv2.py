@@ -43,7 +43,7 @@ def init(device='cpu'):
 
     # Load parameters
     weight_path = "starganv2_afhq.ckpt"
-    download_path = "https://github.com/justsong-lab/releases/releases/download/v0.1/starganv2_afhq.ckpt"
+    download_path = "https://github.com/songquanpeng/pytorch-deployment/releases/download/v0.1.0/starganv2_afhq.ckpt"
     weight_dict = load_weights(weight_path, download_path, args.device)
 
     # Apply parameters to models

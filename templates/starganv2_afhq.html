@@ -62,7 +62,7 @@
                         <label class="label">Source Image</label>
                         <div class="control">
                             <figure class="image is-256x256" style="margin-bottom: 8px">
-                                <img src="https://cdn.jsdelivr.net/gh/justsong-lab/images/misc/placeholder.png" alt="src" id="showSrcImage" width="256" height="256">
+                                <img src="{{ url_for('static', filename='placeholder.png') }}" alt="src" id="showSrcImage" width="256" height="256">
                             </figure>
                             <input id="srcImage" name="src_image" type="file" accept="image/*" style="display: none">
                             <input type="submit" class="button is-light" value="Select source image"
@@ -75,7 +75,7 @@
                         <label class="label">Reference Image</label>
                         <div class="control">
                             <figure class="image is-256x256" style="margin-bottom: 8px">
-                                <img src="https://cdn.jsdelivr.net/gh/justsong-lab/images/misc/placeholder.png" alt="ref" id="showRefImage" width="256" height="256">
+                                <img src="{{ url_for('static', filename='placeholder.png') }}" alt="ref" id="showRefImage" width="256" height="256">
                             </figure>
                             <input id="refImage" name="ref_image" type="file" accept="image/*" style="display: none">
                             <input type="submit" class="button is-light" value="Select reference image"
@@ -88,7 +88,7 @@
                         <label class="label">Generated Image</label>
                         <div class="control">
                             <figure class="image is-256x256" style="margin-bottom: 8px">
-                                <img src="https://cdn.jsdelivr.net/gh/justsong-lab/images/misc/placeholder.png" alt="fake" id="showResImage" width="256" height="256">
+                                <img src="{{ url_for('static', filename='placeholder.png') }}" alt="fake" id="showResImage" width="256" height="256">
                             </figure>
                             <input type="submit" class="button is-light" value="Generate"
                                    onclick="StarGANv2Generate()">

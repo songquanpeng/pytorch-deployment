@@ -17,8 +17,8 @@ def load_cfg(cfg_path="config.json"):
     return cfg
 
 
-data_path = './data'
 cache_path = 'cache'
+data_path = './data'
 
 
 def load_weights(file_name, download_url, device):
