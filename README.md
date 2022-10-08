@@ -26,7 +26,7 @@
 请注意，模型的权重是从 Github 上下载的，如果你的服务器无法正常访问 Github，请手动下载权重并放到 data 文件夹下。
 
 目前内置的模型：
-+ starganv2_afhq.ckpt：https://github.com/justsong-lab/releases/releases/download/v0.1/starganv2_afhq.ckpt
++ starganv2_afhq.ckpt：https://github.com/songquanpeng/pytorch-deployment/releases/download/v0.1.0/starganv2_afhq.ckpt
 
 </div>
 </details>
